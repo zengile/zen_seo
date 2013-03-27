@@ -1,0 +1,28 @@
+$:.push File.expand_path("../lib", __FILE__)
+
+# Maintain your gem's version:
+require "zen_seo/version"
+
+# Describe your gem and declare its dependencies:
+Gem::Specification.new do |s|
+  s.name        = "zen_seo"
+  s.version     = ZenSeo::VERSION
+  s.authors     = ["Serj Prikhodko"]
+  s.email       = ["sergey@zengile.com"]
+  s.homepage    = "http://github.com/zengile/zen_seo"
+
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.test_files = Dir["test/**/*"]
+  s.require_paths     = ["lib"]
+
+  s.add_dependency "rails", "~> 3.2.13"
+
+  s.description = <<-EOM
+Seo is missed when talking about web apps. Zen_seo comes to bring justice to this cruel world.
+  EOM
+
+  s.post_install_message = <<-EOM
+You are now on Zen promotion of zen_seo. Enjoy!
+  EOM
+
+end

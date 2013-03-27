@@ -1,0 +1,27 @@
+# encoding: utf-8
+require "zen_seo/base"
+
+module ZenSeo
+  # The current version.
+  VERSION = "4.0.9"
+
+  def self.extended(model_class)
+    return if model_class.respond_to? :has_seo_config
+    model_class.instance_eval do
+      extend Base
+      @friendly_id_config = {}
+    end
+  end
+
+  def self.included(model_class)
+    model_class.extend self
+  end
+
+end
+
+end
+
+
+
+
+
