@@ -6,7 +6,8 @@ module ZenSeo
     end
 
     def has_seo_config(options={})
-      @has_seo_config ||= options
+      defaults={title: :title, description: :description, keywords: :keywords}
+      @has_seo_config ||= defaults.merge options
     end
 
   end
@@ -36,9 +37,9 @@ module ZenSeo
     end
 
     def generate_seo_fields
-      seo.title ||= self.send (has_seo_config[:title] || :title)
-      seo.description ||= self.send (has_seo_config[:description] || :description)
-      seo.keywords ||= self.send (has_seo_config[:keywords] || :keywords)
+      seo.title=        self.send (has_seo_config[:title])        if seo.title.blank?
+      seo.description=  self.send (has_seo_config[:description])  if seo.description.blank?
+      seo.keywords=     self.send (has_seo_config[:keywords])     if seo.keywords.blank?
     end
 
   end

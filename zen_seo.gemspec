@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.authors     = ["Serj Prikhodko"]
   s.email       = ["prikha@gmail.com"]
   s.homepage    = "http://github.com/zengile/zen_seo"
-  s.summary     = 'Fancy way of forgetting about seo issues.'
+  s.summary     = 'Fancy way of forgetting about SEO issues.'
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc, README.md"]
   s.test_files = Dir["test/**/*"]
   s.require_paths     = ["lib"]
 

@@ -10,6 +10,7 @@ module ZenSeo
                       :description=>model.seo.description,
                       :keywords=>model.seo.keywords
       end
+      alias :meta_for :meta_tags_for
       protected :meta_tags_for
     end
   end
