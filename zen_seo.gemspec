@@ -12,8 +12,8 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/zengile/zen_seo"
   s.summary     = 'Fancy way of forgetting about SEO issues.'
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc, README.md"]
-  s.test_files = Dir["test/**/*"]
+  s.files = `git ls-files`.split("\n")
+  s.test_files = Dir["spec/**/*"]
   s.require_paths     = ["lib"]
 
   s.add_dependency "rails", "~> 3.2.13"
