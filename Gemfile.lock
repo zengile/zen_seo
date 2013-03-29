@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zen_seo (0.0.1)
+    zen_seo (0.0.2)
       meta-tags
       rails (~> 3.2.13)
 
