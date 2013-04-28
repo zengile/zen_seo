@@ -85,4 +85,4 @@ To set meta tags for your resource just put `fields_for :seo` in your form. Like
 
 ## Copyright
 
-Sergey Prikhodko originally developed by Jared Pace Copyright (c) 2010. See LICENSE for details.
+Developed by Sergey Prikhodko Copyright (c) 2013. See LICENSE for details.
