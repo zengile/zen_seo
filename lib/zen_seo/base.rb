@@ -31,15 +31,43 @@ module ZenSeo
       self.class.has_seo_config
     end
 
+    def to_meta
+      options_hash=fill_in(excessive_options)
+      options_hash.merge(seo_hash)
+    end
+
     private
+    def excessive_options
+      has_seo_config[:options] || {}
+    end
+
     def ensure_has_seo
       seo || self.build_seo
     end
 
     def generate_seo_fields
-      seo.title=        self.send (has_seo_config[:title])        if seo.title.blank?
-      seo.description=  self.send (has_seo_config[:description])  if seo.description.blank?
-      seo.keywords=     self.send (has_seo_config[:keywords])     if seo.keywords.blank?
+      seo.title=        self.send(has_seo_config[:title])        if seo.title.blank?
+      seo.description=  self.send(has_seo_config[:description])  if seo.description.blank?
+      seo.keywords=     self.send(has_seo_config[:keywords])     if seo.keywords.blank?
+    end
+
+    def seo_hash
+      keys=[:title, :description, :keywords]
+      base_hash={}
+      keys.each do |key|
+        base_hash[key] = seo.send(key) || self.send(has_seo_config[key])
+      end
+      base_hash
+    end
+
+    def fill_in(hash)
+      hash.each do |k,v|
+        if v.is_a? Symbol
+          hash[k]=self.send(v)
+        elsif v.is_a? Hash
+          fill_in(v)
+        end
+      end
     end
 
   end

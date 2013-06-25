@@ -33,6 +33,23 @@ This will try to call `title`, `description`, `keywords` on your model to fill i
      end
    end
 ```
+#### Excessive options
+Note that you can pass excessive options that meta_tags support through :options key like so:
+```ruby
+   #app/models/post.rb
+   class Post < ActiveRecord::Base
+     attr_accessible :body, :tags, :title
+     has_seo :description=>:body,
+                :options=>{
+                    :og => {
+                      :title    => :title,
+                      :type     => 'website',
+                      :image    => 'http://now.com/you_rock.jpg'
+                    }
+                }
+   end
+```
+
 
 ###Controller
 

@@ -6,9 +6,7 @@ module ZenSeo
 
     module InstanceMethods
       def meta_tags_for(model)
-        set_meta_tags :title=>model.seo.title,
-                      :description=>model.seo.description,
-                      :keywords=>model.seo.keywords
+        set_meta_tags model.to_meta
       end
       alias :meta_for :meta_tags_for
       protected :meta_tags_for
